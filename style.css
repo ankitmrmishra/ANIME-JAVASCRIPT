@@ -1,7 +1,7 @@
 body{
     margin: 0px;
    background-color: rgb(20, 20, 20);
-   /* height: 100vh; */
+   height: 100vh;
    overflow: hidden;
     
 }
@@ -14,5 +14,7 @@ body{
     grid-template-rows: repeat(var(--row) , 1fr) ;
 }
 .tile{
-    /* outline: 1px solid white; */
+    outline: 1px solid white;
 }
+
+/* // 9878445106 */

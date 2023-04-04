@@ -1,6 +1,8 @@
-let columns = Math.floor(document.body.clientWidth/50);
- row = Math.floor(document.body.clientHeight/50);
+
 const wrapper = document.getElementById('tile')
+
+let columns = 0
+ let row = 0
 const colors = [
     "rgb(218, 54, 43)" ,
      "rgb(218, 54, 43)" ,
@@ -14,39 +16,24 @@ const colors = [
 "rgb(139, 46, 212) "," rgb(139, 46, 212)",
 "rgb(59, 145, 169) "," rgb(59, 145, 169)"
 ]
-let count = -1;
+
 const handleonclick = index =>{
-    count = count + 1;
-anime({
-    
-  targets: '.tile',
-   backgroundColor : colors[count % (colors.length -1)],
- 
-
-//   strokeDashoffset: [anime.setDashoffset, 0],
-   
   
-   delay: anime.stagger(100, {
-    
-    from: index,
-grid: [columns , row]
-})
-})
+ anime({
+    targets: ".tile",
+    backgroundColor : colors[index % (colors.length)],
 
-
+    delay: anime.stagger(100,{
+      grid: [columns, row],
+      from: index
+    })
+  });
 }
-
-
-
-
-
-
-
 
 const createTile = index => {
 const tile = document.createElement("div");
 tile.classList.add("tile");
-tile.onclick = e => handleonclick(index)
+tile.addEventListener('click' , () => handleonclick(index) )  
 
 
 return tile;
@@ -61,7 +48,7 @@ const createTiles = quantity =>{
 
 
 const createGrid = () =>{
-    wrapper.innerHTML = "";
+    wrapper.innerHTML = " ";
 
     columns = Math.floor(document.body.clientWidth / 50);
      row = Math.floor(document.body.clientWidth / 50);
